@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex, nofollow">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introducing GDSFactory+ 2.0</title>
+  
+  <link rel="canonical" href="https://gdsfactory.com/news/introducing-gdsfactory-plus-2-0/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Introducing GDSFactory+ 2.0" />
+  <meta property="og:description" content="A new schematic editor, a proper Python SDK, better simulation and verification, and an AI agent that can work directly with your chip design." />
+  <meta property="og:image" content="https://gdsfactory.com/static/images/news/gdsfactoryplus-2/introducing-gdsfactory-plus-2-0-cover.png" />
+  <meta property="og:url" content="https://gdsfactory.com/news/introducing-gdsfactory-plus-2-0/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+
+  
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+  <link rel="icon" type="image/png" href="/static/images/GDSF_square_logo.png">
+
+  
+
+  <meta name="description" content="A new schematic editor, a proper Python SDK, better simulation and verification, and an AI agent that can work directly with your chip design." />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" integrity="sha384-DeN988K4Vg0cDrUgVHjrVM0+ogMrXsv0AZYIH40/9VGpjC7zi8TFGdnPwL1EkU/T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/styles.css" />
+
+  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/GDSF_logo.png" alt="GDSFactory Logo" width="173" height="15">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/news/">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pricing/">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://gdsfactory.com/plus/">GDSFactory+</a>
+          </li>
+          <li class="nav-item dropdown me-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              Open Source
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li class="dropdown-submenu">
+                <button class="dropdown-item dropdown-toggle dropdown-submenu-toggle" type="button" aria-expanded="false">
+                  Projects
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/gdsfactory">GDSFactory <span class="dropdown-item-desc">Layout</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/gsim/">gSim <span class="dropdown-item-desc">FDTD &amp; FEM</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/meow">MEOW <span class="dropdown-item-desc">Eigenmode Expansion (EME)</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/sax">SAX <span class="dropdown-item-desc">Circuit — Frequency Domain</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/circulax">Circulax <span class="dropdown-item-desc">Circuit — Time Domain</span></a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="/open-source-philosophy/">Open Source Philosophy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-2 mb-2">
+            <a class="btn btn-outline-light rounded-pill" href="https://plus.gdsfactory.com/dashboard">Log In</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="btn btn-primary rounded-pill" href="https://plus.gdsfactory.com/auth/signup"><strong>Sign Up</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+  <article class="news-article mx-auto">
+    <header class="mb-5">
+      <a href="/news/" class="d-inline-block mb-4">&larr; All news</a>
+      <p class="text-secondary"><time datetime="2026-09-03">September 3, 2026</time> &middot; GDSFactory Team</p>
+      <h1 class="display-4">Introducing GDSFactory+ 2.0</h1>
+      <p class="lead">A new schematic editor, a proper Python SDK, better simulation and verification, and an AI agent that can work directly with your chip design.</p>
+      <ul class="news-tags list-inline" aria-label="Topics">
+        <li class="list-inline-item">GDSFactory+</li><li class="list-inline-item">Product</li><li class="list-inline-item">Chip Design</li><li class="list-inline-item">Photonics</li><li class="list-inline-item">AI</li>
+      </ul>
+      <img class="img-fluid rounded mt-3" src="/static/images/news/gdsfactoryplus-2/introducing-gdsfactory-plus-2-0-cover.png" alt="Introducing GDSFactory+ 2.0" />
+    </header>
+    <div class="news-body"><p>Today we are releasing GDSFactory+ 2.0.</p>
+<p>This is a big update. We rebuilt much of the application, introduced a new schematic format and editor, turned the Python package into a proper SDK, and connected simulation, verification, and the AI agent more closely to the design itself.</p>
+<p>The practical result is that there are fewer handoffs. You can sketch a circuit, turn it into layout, simulate it, run checks, and inspect the results all seamlessly within one environment.</p>
+<p>GDSFactory+ still sits on top of the open-source GDSFactory ecosystem, and Python is still central to how it works. What has changed is how much of the design flow is now available in one place—and how easily you can move between the visual and code-based parts of it.</p>
+<h2>A new schematic editor</h2>
+<p>The most visible change in GDSFactory+ 2.0 is our new schematic editor. It has been redesigned from the ground up to be easier to use and to more cleanly and aesthetically represent a wide variety of circuits, from photonic and electronic to quantum-RF.</p>
+<p>Components are easier to find. The library is grouped by PDK, and a searchable picker gives access to project cells, built-in GDSFactory cells, and foundry components without mixing them into one long list. Tags allow you to further categorize your cells and find them quickly.</p>
+<p>Wiring has been made more intuitive and expressive. Click a port and start drawing. Optical routes use Manhattan geometry that can inform layout. Routes can taper between different widths, use s-bends, and preserve their settings when the schematic is reopened.</p>
+<p>We also put a lot of care into refining the small interactions that make editing a real circuit less frustrating. Copying components now brings their routes with them. Rotated cells have the correct routing obstacles. You can expose an unconnected port from the canvas, pin reference geometry so it cannot be moved accidentally, and edit a selection from a toolbar that appears next to it.</p>
+<p>These are not headline features on their own. But together they add up to a more pleasant experience for the user.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/schematic-electrical-circuit.png" alt="Electrical RC circuit in the GDSFactory+ schematic editor"></p>
+<p><img src="/static/images/news/gdsfactoryplus-2/schematic-photonic-demux.png" alt="Photonic demultiplexer schematic in the GDSFactory+ editor"></p>
+<h2>From schematic to layout with Livewire</h2>
+<p>A schematic in GDSFactory+ is not just a drawing. It carries the component parameters, ports, connectivity, and routing information used to produce the layout. Livewire turns that information into a layout that faithfully recreates the real GDS while remaining interactive.</p>
+<p>Instead of moving back and forth between an abstract circuit diagram and a separate layout tool, you can position, align, and group components in an interface that shows their true geometry. This makes more complex layout scenarios easier to explore without losing the connection to the underlying design.</p>
+<p>The wires drawn in the schematic define which ports connect. It is in Livewire that those connections materialize as physical routes against the real component geometry. Its advanced ML routing engines can find paths through dense layouts, avoid components and other obstacles, and be tuned to the requirements of the design. Different routing methods can be used for different connections, including path-length matching for circuits where timing or phase matters.</p>
+<p>The generated route is still easy to modify by hand. You can move a route, add vertices to guide it through a particular area, or convert an individual section into an s-bend. This keeps automated routing from becoming a black box: the engine handles the difficult first pass, while the designer retains direct control over the result.</p>
+<p>The result remains tied to the generated GDS. Change a ring radius or waveguide cross-section and Livewire shows the physical effect. Move a component and its attached route moves with it. Change the minimum bend radius and the router uses the new value rather than silently falling back to a default.</p>
+<p>The same approach works for hierarchical circuits. A subcircuit can be used as a component in a larger design, while simulation and verification still have access to its underlying connectivity.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/livewire-layout-and-gds.png" alt="Livewire layout beside the generated GDS view"></p>
+<h2>GDSFactory+ is now a real Python SDK</h2>
+<p>Until now, most GDSFactory+ capabilities were reached through the extension. In 2.0, <code>gdsfactoryplus</code> is an installable Python package with platform wheels, type information, and a compiled native core.</p>
+<p>The SDK exposes routing, simulation, and verification directly to Python:</p>
+<pre><code class="language-python">from gdsfactoryplus.check import check_connectivity, check_drc, check_lvs
+from gdsfactoryplus import routing
+from gdsfactoryplus.sim import run_simulation
+</code></pre>
+<p>You can use these APIs in a notebook, a CI job, an internal design script, or any other Python workflow. The verification package includes local optical and electrical connectivity checks, LVS, and remote DRC submission. The routing package brings together manual, step-based, corner-based, A*, bundle, and path-length-matched routing tools.</p>
+<p>There is also an API for larger autodesign campaigns. It can submit a campaign to the server, stream typed progress events, and retrieve the results—including useful output from runs that did not complete successfully.</p>
+<p>This matters because the graphical application should not become a boundary around the work. If a process is worth repeating, it should be possible to automate it.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/python-and-gds-viewer.png" alt="Python component code beside its GDS result"></p>
+<h2>Three circuit simulation engines</h2>
+<p>CirculaX joins SAX and SPICE in GDSFactory+ 2.0. Together, they cover photonic frequency-domain simulation, electronic circuit simulation, and mixed electro-optic circuits.</p>
+<p>The new simulation dashboard uses the same basic controls across all three engines. You can select signals, change axis scales and units, export results to CSV, and run multi-axis parameter sweeps. Project-level wavelength and frequency ranges are saved, while still allowing a one-off override for a particular run.</p>
+<p>The application also checks the circuit before starting. A SAX simulation needs enough ports. A SPICE circuit needs a ground reference. CirculaX needs an emitter. If a model is missing, the dashboard says which one instead of opening an empty plot or failing later in the job.</p>
+<p>Models can be added from a component card. GDSFactory+ creates a SAX, CirculaX, or SPICE starter in the project, even when the component itself comes from an installed PDK. This lets you add or replace a model without modifying the original package.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/simulation-results.png" alt="SAX simulation dashboard with multiple wavelength traces"></p>
+<p><img src="/static/images/news/gdsfactoryplus-2/simulation-multitrace-sax.png" alt="SAX simulation dashboard showing five signals across a wavelength sweep"></p>
+<h2>DRC, LVS, and connectivity in the same loop</h2>
+<p>Verification results are much more useful when they point back to the thing that needs fixing.</p>
+<p>GDSFactory+ 2.0 adds an optical and electrical connectivity check with its own results panel. Findings can be grouped by cell or category, searched, and cross-probed in the design. Previous runs stay available, which makes it easier to check whether an edit actually removed the problem.</p>
+<p>LVS now follows the same results pattern as DRC. It uses the logical instance names from the schematic and places markers in the relevant view. Instead of reading a report and then hunting for the corresponding geometry, you can select a finding and go to it.</p>
+<p>All three checks—DRC, LVS, and connectivity—are available during the normal design cycle. They do not need to wait until the circuit is considered finished. Connectivity is also available locally through the SDK and as a tool for the AI agent.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/drc-results-panel.png" alt="DRC results panel with a selected VIAC enclosure finding"></p>
+<p><img src="/static/images/news/gdsfactoryplus-2/lvs-layout-view.png" alt="LVS layout view showing a routed pad network"></p>
+<h2>An agent that can work on the design</h2>
+<p>The AI agent has changed substantially in this release. It can read a schematic, inspect the available PDK cells, edit component settings and connections, build the layout, and run DRC or connectivity checks.</p>
+<p>For example, you can ask it what 1x2 splitters are available in the active PDK, have it compare their parameters, place one in a circuit, and then check the result. It can also create a schematic from a compact ASCII description, which is useful for drafting a circuit quickly before arranging it by hand.</p>
+<p>There are now separate Design and Support modes. Design mode has tools for working with the circuit and PDK. Support mode focuses on the application environment and logs, so it can help diagnose a broken setup without mixing those tools into a design task.</p>
+<p>The agent can use supported hosted models, bring-your-own-key providers (for both Anthropic and OpenAI), and custom local MCP servers. Actions that change files or run commands remain visible and subject to approval, and custom tool activity is recorded locally.</p>
+<p>We do not expect every design task to begin with a prompt. Often it is faster to drag a component or edit a line of Python. The agent is there for the parts that benefit from searching a large library, explaining an unfamiliar result, or carrying out a sequence of repetitive steps.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/agent-chat.png" alt="GDSFactory+ agent chat in Design mode"></p>
+<h2>Less setup, clearer failures</h2>
+<p>Some of the largest changes in 2.0 are deliberately hard to notice.</p>
+<p>New blank projects now set themselves up after the folder reload. UV is installed through its official platform installers. PDK and site-package sources open read-only, so following a component definition does not risk changing an installed dependency. Project code remains editable.</p>
+<p>Settings that used to be spread across menus now share one editor. Global and project settings are clearly marked, and the same place shows the active PDK, simulation ranges, AI provider, logging options, and system health. When it changes project configuration, the editor updates <code>pyproject.toml</code> without removing comments or unrelated settings.</p>
+<p>The server, Python workers, PDK index, and component cache were also reworked to be faster and more robust. When errors do happen, the messages are better and the consequences are more tightly confined so that you can keep going with the rest of your design.</p>
+<p><img src="/static/images/news/gdsfactoryplus-2/settings-health.png" alt="GDSFactory+ settings page showing system, environment, and project health"></p>
+<h2>Before upgrading: schematics have changed</h2>
+<p>Version 2 uses the new <code>.gsch</code> format. Version 1 schematics used <code>.pic.yml</code>.</p>
+<p>The formats are different enough that an existing schematic cannot be migrated by changing its extension. It needs to be converted or recreated in the new editor. We know this creates work for teams with existing designs, and it is the main thing to plan for before upgrading.</p>
+<p>The format change gave us room to support electronic and photonic capture in the same editor, make routing more predictable, and carry richer connectivity into simulation and verification. Still, if you have a large v1 project, review the <a href="https://gdsfactory.com/plus/v2/cli/#gfp-scm">schematic migration guidance</a> and keep a copy of the original project before moving it to 2.0.</p>
+<h2>Getting started</h2>
+<p>GDSFactory+ 2.0 is available as a local VS Code extension and through GDSFactory Cloud. Existing users can update to the 2.0 release. New teams can request a trial and begin with one of the sample projects.</p>
+<p>The <a href="https://gdsfactory.com/plus/quickstart/">quickstart</a> covers the main workflow: create a component, design and simulate a circuit, run DRC and LVS, and work with the agent. For the full list of changes, including smaller fixes and compatibility notes, see the <a href="https://gdsfactory.com/plus/changelog/">GDSFactory+ changelog</a>.</p>
+<p>This release took a great deal of rebuilding, testing, and feedback from people using GDSFactory+ on real projects. We hope 2.0 makes the everyday work noticeably simpler—and gives you more room to build your own workflows when the built-in ones are not enough.</p>
+<p><a href="https://gdsfactory.com/">Get started with GDSFactory+</a> or <a href="https://gdsfactory.com/plus/">read the documentation</a>.</p>
+</div>
+    <a href="/news/" class="d-inline-block mt-5">&larr; All news</a>
+  </article>
+</main>
+
+
+  <!-- Footer -->
+  <footer class="footer text-secondary">
+    <div class="container">
+      <hr class="section-divider">
+      <div class="row align-items-center gy-4 pb-4 pt-4 my-3">
+        <div class="col-md-4 text-center">
+          <span>&copy; 2026 GDSFactory. All rights reserved.</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="/careers/">Careers</a></li>
+            <li class="list-inline-item"><a href="/privacy/">Privacy</a></li>
+            <li class="list-inline-item"><a href="/terms/">Terms</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <div class="iso-certifications" role="group" aria-label="ISO certification">
+            <img
+              class="iso-certification-image"
+              src="/static/certifications/iso-27001-badge.png"
+              alt="ISO/IEC 27001:2022 certified"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Autoplaying demo loops stay still for reduced-motion users, who can start them via controls.
+    if (reduceMotion) {
+      document.querySelectorAll('video[autoplay]').forEach(video => {
+        video.removeAttribute('autoplay');
+        video.pause();
+        video.controls = true;
+      });
+    }
+  </script>
+</body>
+</html>

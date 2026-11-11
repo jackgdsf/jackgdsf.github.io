@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex, nofollow">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GDSFactory+: Modern EDA software for chip design</title>
+  
+
+  
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+  <link rel="icon" type="image/png" href="/static/images/GDSF_square_logo.png">
+
+  
+  <!-- Open Graph Meta Tags for Social Media Thumbnails -->
+  <meta property="og:title" content="GDSFactory+: Modern EDA software for chip design" />
+  <meta property="og:description" content="Design, simulate, and verify chips blazingly fast with GDSFactory+. Programmatically design, simulate, and verify photonic, quantum, RF, and analog chips with reproducible workflows." />
+  <meta property="og:image" content="/static/images/GDSF_logo.png" />
+  <meta property="og:image:width" content="792" />
+  <meta property="og:image:height" content="198" />
+  <meta property="og:url" content="https://gdsfactory.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GDSFactory" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="GDSFactory+: Modern EDA software for chip design" />
+  <meta name="twitter:description" content="Design, simulate, and verify chips blazingly fast with GDSFactory+. Programmatically design, simulate, and verify photonic, quantum, RF, and analog chips with reproducible workflows." />
+  <meta name="twitter:image" content="/static/images/GDSF_square_logo.png" />
+  
+
+  <meta name="description" content="Design, simulate, and verify chips blazingly fast with GDSFactory+. Programmatically design, simulate, and verify photonic, quantum, RF, and analog chips with reproducible workflows." />
+  <meta name="keywords" content="chip design, photonic, quantum, analog, GDSFactory, chip layout, verification, validation" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" integrity="sha384-DeN988K4Vg0cDrUgVHjrVM0+ogMrXsv0AZYIH40/9VGpjC7zi8TFGdnPwL1EkU/T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/styles.css" />
+
+  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/GDSF_logo.png" alt="GDSFactory Logo" width="173" height="15">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/news/">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pricing/">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://gdsfactory.com/plus/">GDSFactory+</a>
+          </li>
+          <li class="nav-item dropdown me-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              Open Source
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li class="dropdown-submenu">
+                <button class="dropdown-item dropdown-toggle dropdown-submenu-toggle" type="button" aria-expanded="false">
+                  Projects
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/gdsfactory">GDSFactory <span class="dropdown-item-desc">Layout</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/gsim/">gSim <span class="dropdown-item-desc">FDTD &amp; FEM</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/meow">MEOW <span class="dropdown-item-desc">Eigenmode Expansion (EME)</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/sax">SAX <span class="dropdown-item-desc">Circuit — Frequency Domain</span></a></li>
+                  <li><a class="dropdown-item" href="https://gdsfactory.github.io/circulax">Circulax <span class="dropdown-item-desc">Circuit — Time Domain</span></a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="/open-source-philosophy/">Open Source Philosophy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-2 mb-2">
+            <a class="btn btn-outline-light rounded-pill" href="https://plus.gdsfactory.com/dashboard">Log In</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="btn btn-primary rounded-pill" href="https://plus.gdsfactory.com/auth/signup"><strong>Sign Up</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- Hero Section -->
+  <section class="hero py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-75 gx-5 my-3">
+          <div class="col-md-6 pb-4">
+            <h1 class="display-4 mb-4">Design, simulate, and verify chips blazingly fast with <span class="gradient-text_red">GDSFactory+</span></h1>
+            <p class="lead mb-3">Programmatically design, simulate, and verify photonic, quantum, RF, and analog chips with reproducible workflows.</p>
+            <p class="lead mb-4"><strong>Built by the creators and maintainers of GDSFactory</strong> — the world’s most popular open-source chip design framework.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-primary btn-lg" href="https://plus.gdsfactory.com/auth/signup" target="_blank" rel="noopener noreferrer">
+                Start your free 30-day trial
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="#video-overview">
+                Watch Demo <i class="bi bi-play-circle ms-2"></i>
+              </a>
+            </div>
+            <ul class="hero-proof-points" aria-label="GDSFactory+ highlights">
+              <li>50+ PDKs.</li>
+              <li>Layout. Simulate. Verify.</li>
+              <li>One connected workflow.</li>
+            </ul>
+          </div>
+        <div class="col-md-6">
+          
+          <video class="hero-media mb-4" width="1212" height="720" autoplay muted loop playsinline preload="auto" poster="/static/images/overview-poster.webp" aria-label="GDSFactory+ animated overview: building a ring resonator schematic and simulating it">
+            <source src="/static/images/overview.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+<section class="design-cycle py-5" aria-labelledby="design-cycle-title">
+  <div class="container">
+    <div class="design-cycle-panel">
+      <header class="design-cycle-heading">
+        <h2 id="design-cycle-title">Accelerating the chip design cycle with <span>GDSFactory</span></h2>
+        <p>Engineer-guided, AI-accelerated design automation</p>
+      </header>
+      <div class="design-cycle-graph">
+        <svg class="design-cycle-arrows" viewBox="0 0 1000 760" fill="none" aria-hidden="true" focusable="false">
+          <defs>
+            
+            <marker id="cycle-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m2 1 6 4-6 4" class="cycle-stroke-blue"/></marker>
+            
+            <marker id="cycle-arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m2 1 6 4-6 4" class="cycle-stroke-cyan"/></marker>
+            
+            <marker id="cycle-arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m2 1 6 4-6 4" class="cycle-stroke-purple"/></marker>
+            
+            <marker id="cycle-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m2 1 6 4-6 4" class="cycle-stroke-amber"/></marker>
+            
+            <marker id="cycle-arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m2 1 6 4-6 4" class="cycle-stroke-green"/></marker>
+            
+          </defs>
+          
+          <path d="M500.000 80.000 A300 300 0 0 1 676.336 137.295 A300 300 0 0 1 785.317 287.295" class="cycle-stroke-blue" marker-mid="url(#cycle-arrow-blue)"/>
+          <path d="M785.317 287.295 A300 300 0 0 1 785.317 472.705 A300 300 0 0 1 676.336 622.705" class="cycle-stroke-cyan" marker-mid="url(#cycle-arrow-cyan)"/>
+          <path d="M676.336 622.705 A300 300 0 0 1 500.000 680.000 A300 300 0 0 1 323.664 622.705" class="cycle-stroke-purple" marker-mid="url(#cycle-arrow-purple)"/>
+          <path d="M323.664 622.705 A300 300 0 0 1 214.683 472.705 A300 300 0 0 1 214.683 287.295" class="cycle-stroke-amber" marker-mid="url(#cycle-arrow-amber)"/>
+          <path d="M214.683 287.295 A300 300 0 0 1 323.664 137.295 A300 300 0 0 1 500.000 80.000" class="cycle-stroke-green" marker-mid="url(#cycle-arrow-green)"/>
+          
+          <circle class="design-cycle-pulse" cx="500" cy="380" r="300" pathLength="100"/>
+        </svg>
+        <ol class="design-cycle-stages">
+          
+          <li class="cycle-stage cycle-stage-layout">
+            <a class="cycle-card" href="https://gdsfactory.com/plus/v2/layout/">
+              <span class="cycle-step">01</span>
+              <span class="cycle-card-arrow" aria-hidden="true">↗</span>
+              <span class="cycle-icon">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <rect x="7" y="7" width="34" height="34" rx="5"/><path d="M15 15h7v7h-7zM28 15h5v7h-5zM15 28h7v5h-7zM28 28h5v5h-5z"/>
+  
+</svg>
+</span>
+              <span class="cycle-name">Layout design</span>
+              <span class="cycle-detail">Build your foundation</span>
+            </a>
+          </li>
+          
+          <li class="cycle-stage cycle-stage-device">
+            <a class="cycle-card" href="https://gdsfactory.com/plus/v2/simulations/device-design/">
+              <span class="cycle-step">02</span>
+              <span class="cycle-card-arrow" aria-hidden="true">↗</span>
+              <span class="cycle-icon">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M5 36h38M7 31c11 0 9-23 17-23s6 23 17 23"/><path d="M24 8v28" stroke-dasharray="2 5" opacity=".4"/>
+  
+</svg>
+</span>
+              <span class="cycle-name">Device design</span>
+              <span class="cycle-detail">Simulate &amp; optimize</span>
+            </a>
+          </li>
+          
+          <li class="cycle-stage cycle-stage-circuit">
+            <a class="cycle-card" href="https://gdsfactory.com/plus/v2/simulation-templates/circuit/">
+              <span class="cycle-step">03</span>
+              <span class="cycle-card-arrow" aria-hidden="true">↗</span>
+              <span class="cycle-icon">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="m14 15 10 9 10-9M24 24v13M14 15v20M34 15v20M14 35l10-11 10 11"/><circle cx="14" cy="12" r="4"/><circle cx="34" cy="12" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="14" cy="38" r="4"/><circle cx="34" cy="38" r="4"/>
+  
+</svg>
+</span>
+              <span class="cycle-name">Circuit design</span>
+              <span class="cycle-detail">Connect &amp; optimize</span>
+            </a>
+          </li>
+          
+          <li class="cycle-stage cycle-stage-verify">
+            <a class="cycle-card" href="https://gdsfactory.com/plus/v2/verification/">
+              <span class="cycle-step">04</span>
+              <span class="cycle-card-arrow" aria-hidden="true">↗</span>
+              <span class="cycle-icon">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M16 10h-4a4 4 0 0 0-4 4v25a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V14a4 4 0 0 0-4-4h-4"/><rect x="16" y="5" width="16" height="9" rx="3"/><path d="m15 25 3 3 5-6m-8 13 3 3 5-6m5-7h5m-5 10h5"/>
+  
+</svg>
+</span>
+              <span class="cycle-name">Verification</span>
+              <span class="cycle-detail">DRC / LVS</span>
+            </a>
+          </li>
+          
+          <li class="cycle-stage cycle-stage-analysis">
+            <a class="cycle-card" href="https://gdsfactory.com/plus/v2">
+              <span class="cycle-step">05</span>
+              <span class="cycle-card-arrow" aria-hidden="true">↗</span>
+              <span class="cycle-icon">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M7 40h35M12 33V23h5v10M23 33V16h5v17M34 33V8h5v25"/><path d="m10 15 12-7 7 2 9-6" opacity=".5"/>
+  
+</svg>
+</span>
+              <span class="cycle-name">Data analysis</span>
+              <span class="cycle-detail">Explore &amp; discover insights</span>
+            </a>
+          </li>
+          
+        </ol>
+        <a class="cycle-center" href="https://gdsfactory.com/plus/v2/agent/">
+          <span class="cycle-center-icons">
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M16 17v-3a8 8 0 0 1 16 0v3a8 8 0 0 1-16 0Z"/>
+  <path d="M16 14c4 0 7-2 9-5 1 3 4 5 7 5M19 29l5 5 5-5"/>
+  <path d="M19 28c-7 1-11 6-11 12v2h32v-2c0-6-4-11-11-12M15 37v5m18-5v5"/>
+  
+</svg>
+<span aria-hidden="true">+</span>
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <rect x="7" y="15" width="34" height="27" rx="8"/><path d="M24 15V9M3 25v8m42-8v8m-27-1c3 3 9 3 12 0"/><circle cx="24" cy="6" r="3"/><circle cx="17" cy="25" r="2"/><circle cx="31" cy="25" r="2"/>
+  
+</svg>
+</span>
+          <span class="cycle-name">Engineer +</span>
+          <span class="cycle-agent-name">GDSFactory Agent</span>
+          <span class="cycle-center-caption">At the heart of every step <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<section class="simulation-showcase py-5" aria-labelledby="simulation-showcase-title">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 id="simulation-showcase-title" class="display-5 text-center mb-4">One platform. Replace your simulation stack.</h2>
+        <p class="lead text-center mb-4">Our simulators cover every physics domain shown—without switching tools.</p>
+        <div class="simulation-replacement">
+          <p class="simulation-current-stack">Your current simulation stack</p>
+          <span class="simulation-replacement-arrow" aria-hidden="true">→</span>
+          <p class="simulation-replacement-target">GDSFactory simulators</p>
+        </div>
+        <nav class="simulation-doc-links" aria-label="Simulation documentation">
+          <div class="simulation-device-links">
+            <a class="simulation-category" href="https://gdsfactory.com/plus/v2/simulations/device-design/">Device <span aria-hidden="true">↗</span></a>
+            <ul>
+              <li><a href="https://gdsfactory.com/plus/v2/simulation-templates/fdtd/">FDTD <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://gdsfactory.com/plus/v2/simulation-templates/notebooks/fem_palace_branch_line_coupler/">RF <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://gdsfactory.com/plus/v2/simulation-templates/heater/">Heat <span aria-hidden="true">↗</span></a></li>
+            </ul>
+          </div>
+          <a class="simulation-category" href="https://gdsfactory.com/plus/v2/simulation-templates/circuit/">Circuit <span aria-hidden="true">↗</span></a>
+        </nav>
+        <ul class="simulation-capabilities" aria-label="Simulation capabilities">
+          
+          <li>
+            <a class="simulation-capability" href="https://gdsfactory.com/plus/v2/simulation-templates/fdtd/">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M3 23h10c8 0 11-14 19-14s11 14 19 14h10M3 41h10c8 0 11 14 19 14s11-14 19-14h10M3 32h58"/>
+  <ellipse cx="32" cy="32" rx="17" ry="12"/><ellipse cx="32" cy="32" rx="8" ry="6"/><path d="M32 3v58" opacity=".5"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">FDTD<span class="simulation-link-arrow" aria-hidden="true"> ↗</span></span>
+              <span class="simulation-capability-description">Electromagnetic wave optics</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="simulation-capability" href="https://gdsfactory.com/plus/v2/simulation-templates/notebooks/fem_palace_branch_line_coupler/">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <circle cx="32" cy="20" r="3"/><path d="m32 23-16 36 16-9 16 9-16-36Zm-10 22h20M26 35h12M16 59l26-14M48 59 22 45M23 10a14 14 0 0 0 0 20m18-20a14 14 0 0 1 0 20M16 4a23 23 0 0 0 0 32m32-32a23 23 0 0 1 0 32"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">RF<span class="simulation-link-arrow" aria-hidden="true"> ↗</span></span>
+              <span class="simulation-capability-description">S-parameters &amp; EM networks</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="simulation-capability" href="https://gdsfactory.com/plus/v2/simulation-templates/heater/">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="M24 37V12a8 8 0 0 1 16 0v25a14 14 0 1 1-16 0Z"/><path d="M32 17v28m16-30h8m-8 10h5m-5 10h8"/><circle cx="32" cy="48" r="6" fill="currentColor" stroke="none"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">Heat<span class="simulation-link-arrow" aria-hidden="true"> ↗</span></span>
+              <span class="simulation-capability-description">Thermal analysis</span>
+            </a>
+          </li>
+          
+          <li>
+            <div class="simulation-capability">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <circle cx="32" cy="32" r="26"/><path d="M16 23h12m-6-6v12m14-6h12m-6-6v12M26 44h12"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">Charge</span>
+              <span class="simulation-capability-description">Semiconductor &amp; carrier transport</span>
+            </div>
+          </li>
+          
+          <li>
+            <div class="simulation-capability">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <circle cx="32" cy="22" r="17"/><circle cx="22" cy="40" r="17"/><circle cx="42" cy="40" r="17"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">Multi-physics</span>
+              <span class="simulation-capability-description">Coupled simulations</span>
+            </div>
+          </li>
+          
+          <li>
+            <a class="simulation-capability" href="https://gdsfactory.com/plus/v2/simulation-templates/circuit/">
+              
+<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  
+  <path d="m20 15 30 17-30 17V15ZM5 23h15M5 41h15m30-9h10M33 22V8h15M33 42v14h15m-23-31h6m-3-3v6m-3 9h6"/><circle cx="51" cy="8" r="3"/><circle cx="51" cy="56" r="3"/>
+  
+</svg>
+
+              <span class="simulation-capability-name">Circuit<span class="simulation-link-arrow" aria-hidden="true"> ↗</span></span>
+              <span class="simulation-capability-description">SPICE, compact models &amp; system co-simulation</span>
+            </a>
+          </li>
+          
+        </ul>
+        <div class="simulation-deployment" aria-labelledby="simulation-deployment-title">
+          <header class="text-center">
+            <h3 id="simulation-deployment-title">Run simulations anywhere</h3>
+            <p>On GDSFactory Cloud or on your own servers.</p>
+            <p class="simulation-deployment-tagline">Same workflow. Same tools. Your choice.</p>
+          </header>
+          <div class="simulation-deployment-diagram">
+            <div class="simulation-environment">
+              <svg class="simulation-cloud" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="simulation-cloud-fill" x1="120" y1="30" x2="120" y2="132" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4daeff" stop-opacity=".14"/>
+                    <stop offset="1" stop-color="#4daeff" stop-opacity=".03"/>
+                  </linearGradient>
+                </defs>
+                <path d="M65 132a31 31 0 0 1-4-62 35 35 0 0 1 48-31 45 45 0 0 1 83 30 32 32 0 0 1-6 63Z" fill="url(#simulation-cloud-fill)" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="96" y="78" width="48" height="16" rx="4"/>
+                  <rect x="96" y="100" width="48" height="16" rx="4"/>
+                  <path d="M104 86h16m-16 22h16" opacity=".6"/>
+                </g>
+                <circle cx="135" cy="86" r="2" fill="#8be0e7"/>
+                <circle cx="135" cy="108" r="2" fill="#8be0e7"/>
+              </svg>
+              <h4>GDSFactory Cloud</h4>
+              <p>Instant access to powerful simulation resources.</p>
+              <ul><li>Scalable computing</li><li>No infrastructure to manage</li><li>Access anywhere</li></ul>
+            </div>
+            <span class="simulation-connection simulation-connection-cloud" aria-hidden="true">↔</span>
+            <div class="simulation-workstation">
+              <svg viewBox="0 0 320 220" fill="none" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="simulation-screen-border" x1="25" y1="25" x2="295" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#567084"/><stop offset="1" stop-color="#263f50"/></linearGradient>
+                  <linearGradient id="simulation-field" x1="170" y1="0" x2="281" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#47a9ff"/><stop offset=".5" stop-color="#50f2d0"/><stop offset=".8" stop-color="#f0d86a"/><stop offset="1" stop-color="#ff996b"/></linearGradient>
+                </defs>
+                <rect x="22" y="22" width="276" height="166" rx="10" fill="#0e1b24" stroke="url(#simulation-screen-border)" stroke-width="2"/>
+                <path d="M23 44h274" stroke="#29404e"/><circle cx="35" cy="33" r="3" fill="#fa7774"/><circle cx="46" cy="33" r="3" fill="#f0cc70"/><circle cx="57" cy="33" r="3" fill="#56d3a1"/>
+                <text x="35" y="71" fill="#6adeeb" font-family="monospace" font-size="8">import gdsfactory as gf</text>
+                <text x="35" y="90" fill="#b1c5d4" font-family="monospace" font-size="8">c = gf.components.mzi()</text>
+                <text x="35" y="109" fill="#b1c5d4" font-family="monospace" font-size="8">c.plot()</text>
+                <text x="35" y="128" fill="#b1c5d4" font-family="monospace" font-size="8">c.simulate()</text>
+                <path d="M170 55v115" stroke="#29404e"/>
+                <defs>
+                  <path id="simulation-mzi-upper" d="M182 113h10c12 0 10-29 24-29h29c14 0 12 29 24 29h12" pathLength="100"/>
+                  <path id="simulation-mzi-lower" d="M182 113h10c12 0 10 29 24 29h29c14 0 12-29 24-29h12" pathLength="100"/>
+                </defs>
+                <g stroke="url(#simulation-field)" stroke-linecap="round">
+                  <g stroke-width="12" opacity=".1">
+                    <use href="#simulation-mzi-upper"/><use href="#simulation-mzi-lower"/>
+                  </g>
+                  <g stroke-width="5" opacity=".25">
+                    <use href="#simulation-mzi-upper"/><use href="#simulation-mzi-lower"/>
+                  </g>
+                  <g stroke-width="2">
+                    <use href="#simulation-mzi-upper"/><use href="#simulation-mzi-lower"/>
+                  </g>
+                </g>
+                <g class="simulation-mzi-light" stroke="#d7fffa" stroke-width="2.5" stroke-linecap="round">
+                  <use class="simulation-mzi-pulse" href="#simulation-mzi-upper"/>
+                  <use class="simulation-mzi-pulse" href="#simulation-mzi-lower"/>
+                </g>
+                <path d="M22 188 4 199c0 6 9 10 21 10h270c12 0 21-4 21-10l-18-11H22Z" fill="#263c49" stroke="#6d8799" stroke-width="1.5"/>
+                <path d="M130 188h60l-5 6h-50l-5-6Z" fill="#0e1b24"/>
+              </svg>
+              <a href="https://gdsfactory.com/plus/v2/simulations/">Explore simulation workflows <span aria-hidden="true">↗</span></a>
+            </div>
+            <span class="simulation-connection simulation-connection-local" aria-hidden="true">↔</span>
+            <div class="simulation-environment">
+              <svg class="simulation-servers" viewBox="0 0 240 160" fill="none" aria-hidden="true" focusable="false">
+                
+                <rect x="30" y="20" width="180" height="34" rx="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M46 32h70m-70 10h70" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+                <circle cx="181" cy="37" r="4" fill="currentColor"/>
+                
+                <rect x="30" y="62" width="180" height="34" rx="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M46 74h70m-70 10h70" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+                <circle cx="181" cy="79" r="4" fill="currentColor"/>
+                
+                <rect x="30" y="104" width="180" height="34" rx="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M46 116h70m-70 10h70" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+                <circle cx="181" cy="121" r="4" fill="currentColor"/>
+                
+              </svg>
+              <h4>Your local servers</h4>
+              <p>Run the same simulations in your own environment.</p>
+              <ul><li>Keep your data in-house</li><li>Use your existing resources</li><li>Full control &amp; customization</li></ul>
+            </div>
+          </div>
+          <p class="simulation-workflow">Design <span aria-hidden="true">→</span> Simulate <span aria-hidden="true">→</span> Scale <span aria-hidden="true">→</span> Anywhere</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="feature py-5">
+    <div class="container">
+      <div class="row justify-content-center py-5">
+        <div class="col-lg-10">
+          <div class="text-center glass-card">
+            <h2 class="display-5 mb-3">Build with the foundries and tools you need</h2>
+            <p class="lead mb-5">GDSFactory+ supports over <a href="https://gdsfactory.com/plus/pdks/" class="text-white">50+ PDKs</a> and integrates with over 20 tools.</p>
+            
+            <svg class="foundry-filter-definitions" width="0" height="0" aria-hidden="true" focusable="false">
+              <defs>
+                <filter id="foundry-remove-background" color-interpolation-filters="sRGB">
+                  <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -4 -4 -4 0 11" />
+                  <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+              </defs>
+            </svg>
+            <div class="foundry-selectors mb-4" role="group" aria-label="Filter foundries and packaging houses by category" hidden>
+              <button type="button" class="foundry-selector" data-foundry-filter="all" aria-pressed="true" aria-controls="foundry-logos">All</button>
+              <button type="button" class="foundry-selector" data-foundry-filter="sipho" aria-pressed="false" aria-controls="foundry-logos">SiPho</button>
+              <button type="button" class="foundry-selector" data-foundry-filter="inp" aria-pressed="false" aria-controls="foundry-logos">InP</button>
+              <button type="button" class="foundry-selector" data-foundry-filter="cmos" aria-pressed="false" aria-controls="foundry-logos">CMOS</button>
+              <button type="button" class="foundry-selector" data-foundry-filter="tfln" aria-pressed="false" aria-controls="foundry-logos">TFLN</button>
+              <button type="button" class="foundry-selector" data-foundry-filter="packaging" aria-pressed="false" aria-controls="foundry-logos">Packaging</button>
+            </div>
+            <ul id="foundry-logos" class="foundry-logos" aria-label="Supported foundries and packaging houses">
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="GlobalFoundries — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 5.12500;">
+                    <img src="/static/images/foundries/globalfoundries.png" alt="GlobalFoundries" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Tower — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 143.43px); aspect-ratio: 2.39052;">
+                    <img src="/static/images/foundries/tower.png" alt="Tower" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="SkyWater — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 4.65116;">
+                    <img src="/static/images/foundries/skywater.png" alt="SkyWater" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo foundry-logo-normalize">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="SilTerra — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 2.92720;">
+                    <img src="/static/images/foundries/silterra.png" alt="SilTerra" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Advanced Micro Foundry — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 93.26px); aspect-ratio: 1.55440;">
+                    <img src="/static/images/foundries/advanced-micro-foundry.png" alt="Advanced Micro Foundry" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="imec — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 107.14px); aspect-ratio: 1.78571;">
+                    <img src="/static/images/foundries/imec.png" alt="imec" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho packaging" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="AIM Photonics — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 2.67742;">
+                    <img src="/static/images/foundries/aim-photonics.png" alt="AIM Photonics" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="packaging" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="PHIX — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 103.15px); aspect-ratio: 600 / 349;">
+                    <img src="/static/images/foundries/phix.jpg" alt="PHIX" loading="lazy" style="width: 100%; height: 100%; left: 0; top: 0;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho inp" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="OpenLight — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 115.19px); aspect-ratio: 1.91975;">
+                    <img src="/static/images/foundries/openlight.png" alt="OpenLight" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="CompoundTek — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 4.03750;">
+                    <img src="/static/images/foundries/compoundtek.png" alt="CompoundTek" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="LIGENTEC — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158px); aspect-ratio: 2084 / 260;">
+                    <img src="/static/images/foundries/ligentec-official.png" alt="LIGENTEC" loading="lazy" style="width: 100%; height: 100%; left: 0; top: 0;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="inp" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="SMART Photonics — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 124px); aspect-ratio: 242 / 117;">
+                    <img src="/static/images/foundries/smart-photonics-official.svg" alt="SMART Photonics" loading="lazy" style="width: 100%; height: 100%; left: 0; top: 0;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="inp" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Fraunhofer — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158px); aspect-ratio: 258 / 72;">
+                    <img src="/static/images/foundries/fraunhofer-official.svg" alt="Fraunhofer" loading="lazy" style="width: 100%; height: 100%; left: 0; top: 0;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="VTT — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 89.17px); aspect-ratio: 1.48617;">
+                    <img src="/static/images/foundries/vtt.png" alt="VTT" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho cmos" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="IHP — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 60.00px); aspect-ratio: 1.00000;">
+                    <img src="/static/images/foundries/ihp.png" alt="IHP" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Honeywell — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 5.46429;">
+                    <img src="/static/images/foundries/honeywell.png" alt="Honeywell" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="LioniX International — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 134.77px); aspect-ratio: 2.24610;">
+                    <img src="/static/images/foundries/lionix-international.png" alt="LioniX International" loading="lazy" style="width: 247.24324%; height: 333.20005%; left: -73.62162%; top: -116.60003%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="tfln" class="foundry-logo foundry-logo-normalize">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="QCi — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 140.10px); aspect-ratio: 2.33492;">
+                    <img src="/static/images/foundries/qci.png" alt="QCi" loading="lazy" style="width: 100.00000%; height: 233.49211%; left: -0.00000%; top: -65.15130%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="tfln" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Lightium — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 3.26101;">
+                    <img src="/static/images/foundries/lightium.png" alt="Lightium" loading="lazy" style="width: 100.00000%; height: 217.40076%; left: -0.00000%; top: -57.71990%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="tfln" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="CCRAFT — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158px); aspect-ratio: 5.291908;">
+                    <img src="/static/images/foundries/ccraft-official.png" alt="CCRAFT" loading="lazy" style="width: 137.629711%; height: 520.231214%; left: -17.640634%; top: -222.543353%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="CORNERSTONE — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 98.04px); aspect-ratio: 1.63407;">
+                    <img src="/static/images/foundries/cornerstone.png" alt="CORNERSTONE" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="inp" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="III-V Lab — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 133.76px); aspect-ratio: 2.22935;">
+                    <img src="/static/images/foundries/iii-v-lab.png" alt="III-V Lab" loading="lazy" style="width: 108.75003%; height: 242.44187%; left: -0.00000%; top: -75.17153%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="CNM IMB — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158.00px); aspect-ratio: 3.57853;">
+                    <img src="/static/images/foundries/cnm-imb.png" alt="CNM IMB" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="sipho" class="foundry-logo foundry-logo-normalize">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="Applied Nanotools — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 158px); aspect-ratio: 5802 / 1639;">
+                    <img src="/static/images/foundries/applied-nanotools-official.png" alt="Applied Nanotools" loading="lazy" style="width: 100%; height: 100%; left: 0; top: 0;" />
+                  </span>
+                </a>
+              </li>
+              
+              <li data-foundry-technologies="tfln" class="foundry-logo">
+                <a class="foundry-logo-link" href="https://gdsfactory.com/plus/pdks/#photonics-pdks" aria-label="LXT — explore photonics PDKs">
+                  <span class="foundry-logo-frame" style="width: min(100%, 60.00px); aspect-ratio: 1.00000;">
+                    <img src="/static/images/foundries/lxt.png" alt="LXT" loading="lazy" style="width: 100.00000%; height: 100.00000%; left: -0.00000%; top: -0.00000%;" />
+                  </span>
+                </a>
+              </li>
+              
+            </ul>
+            <p class="visually-hidden" id="foundry-filter-status" role="status"></p>
+            <script src="/static/js/foundry-filter.js" defer></script>
+            <p class="h2 gradient-text_blue mt-4 mb-0">From idea to chip, seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Overview Section -->
+  <section class="video-overview py-5" id="video-overview">
+    <div class="container">
+      <div class="row justify-content-center py-5">
+        <div class="col-lg-8">
+          <div class="text-center mb-4">
+            <h2 class="display-5 mb-4">See GDSFactory+ in Action</h2>
+            <p class="lead">Watch GDSFactory+ take a design from schematic to verified layout</p>
+          </div>
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/NfI1Is-Bp60"
+              title="GDSFactory+ Overview"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="container">
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md">
+          <h2>Schematics, layout, and simulation — <span class="gradient-text_blue">all in one editor</span></h2>
+          <p>GDSFactory+ brings the complete chip-design workflow into VS Code, with no complex installation or specialized setup.</p>
+          <ul class="text-secondary">
+            <li> Design with code, in the schematic editor, or with our AI agent</li>
+            <li>Run simulations without switching between tools</li>
+            <li>Render and inspect layouts directly in VS Code</li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <img src="/static/images/dodesign-1600.webp" srcset="/static/images/dodesign-800.webp 800w, /static/images/dodesign-1600.webp 1600w" sizes="(min-width: 1400px) 636px, (min-width: 768px) 46vw, 92vw" alt="Schematic and layout editor" class="img-fluid feature-shot" width="1600" height="948" loading="lazy" decoding="async" />
+        </div>
+      <hr class="section-divider">
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="container">
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md order-md-1 order-2">
+          <img src="/static/images/heater_screen-1600.webp" srcset="/static/images/heater_screen-800.webp 800w, /static/images/heater_screen-1600.webp 1600w" sizes="(min-width: 1400px) 636px, (min-width: 768px) 46vw, 92vw" alt="Heater component rendered" class="img-fluid feature-shot" width="1600" height="940" loading="lazy" decoding="async" />
+        </div>
+        <div class="col-md order-md-2 order-1">
+          <h2>Catch errors early with <span class="gradient-text_green">integrated DRC and LVS</span></h2>
+          <p>Find and fix verification issues before they become expensive downstream problems.</p>
+          <ul class="text-secondary">
+            <li>Identify DRC, connectivity, and LVS errors quickly</li>
+            <li>Navigate directly from an error to the affected layout</li>
+            <li>Compare results across design versions</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="section-divider">
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="container">
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md">
+          <h2>Design and maintain chips with our <span class="gradient-text_blue">AI agent</span></h2>
+          <p>Our agent helps you move from component design to verified layouts and well-maintained PDKs.</p>
+          <ul class="text-secondary">
+            <li>Design components and simulate layouts</li>
+            <li>Find and clean up DRC errors</li>
+            <li>Build and maintain PDKs</li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <img src="/static/images/agent-1600.webp" srcset="/static/images/agent-800.webp 800w, /static/images/agent-1600.webp 1600w" sizes="(min-width: 1400px) 636px, (min-width: 768px) 46vw, 92vw" alt="AI agent assisting with chip design" class="img-fluid feature-shot" width="1600" height="940" loading="lazy" decoding="async" />
+        </div>
+      </div>
+      <hr class="section-divider">
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="container">
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md">
+        <blockquote class="blockquote">Switching to <strong>GDSFactory+</strong> has streamlined our PIC design workflow by unifying layout, schematics, simulation, and analysis in one interface. <br>
+          Its Python integration enables custom models and advanced analysis that legacy EDA tools can't match. <br>
+          The <strong>SAX simulator is incredibly fast, and the support team has been excellent. </strong> <br>
+          <strong>GDSFactory+ </strong>is now essential to our modern PIC design process.
+        </blockquote>
+        <p class="text-secondary mt-3">&mdash; Shreyash Bhattarai, Technical Lead &amp; Manager, PIC Design, Lightmatter</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md">
+        <blockquote class="blockquote">I appreciate how <strong>GDSFactory+</strong> makes layout design fast and easy, while also providing advanced routing functionalities that simplify complex designs. It has significantly streamlined our development workflow.
+        </blockquote>
+        <p class="text-secondary mt-3">&mdash; Yingtao Hu, Senior Research Scientist, Hewlett Packard Enterprise</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center pb-4 pt-4 gx-5 gy-5 my-3">
+        <div class="col-md">
+        <blockquote class="blockquote">GDSFactory+ makes it easier for designers to integrate our next-generation 400G electro-optic polymer modulators into silicon photonics platforms across multiple foundries, helping accelerate the development of scalable optical solutions for AI and data centers.
+        </blockquote>
+        <p class="text-secondary mt-3">&mdash; Dr. Robert Blum<br>SVP of Sales &amp; Marketing, Lightwave Logic</p>
+        </div>
+        <hr class="section-divider">
+      </div>
+    </div>
+  </section>
+
+  <section class="team-experience" aria-labelledby="team-experience-title">
+  <div class="container">
+    <div class="team-experience-panel">
+      <header class="team-experience-heading">
+        <h2 id="team-experience-title">Experience behind our team</h2>
+        <p>Our team brings experience from working and studying at these companies and research institutions.</p>
+      </header>
+      <ul class="team-experience-logos" aria-label="Organizations where our team worked or studied">
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="30 346 112 42" style="--logo-width: 116px" role="img" aria-label="Google" focusable="false">
+            <title>Google</title>
+            <defs>
+              <clipPath id="team-logo-1">
+                <rect x="30" y="346" width="112" height="42" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-1)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="150 416 136 29" style="--logo-width: 126px" role="img" aria-label="Samsung" focusable="false">
+            <title>Samsung</title>
+            <defs>
+              <clipPath id="team-logo-2">
+                <rect x="150" y="416" width="136" height="29" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-2)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="190 346 76 52" style="--logo-width: 86px" role="img" aria-label="Intel" focusable="false">
+            <title>Intel</title>
+            <defs>
+              <clipPath id="team-logo-3">
+                <rect x="190" y="346" width="76" height="52" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-3)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/team-experience/sony.svg" alt="Sony" style="--logo-width: 116px" width="116" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/team-experience/apple.svg" alt="Apple" style="--logo-width: 40px" width="40" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/team-experience/synopsys.svg" alt="Synopsys" style="--logo-width: 138px" width="138" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="315 342 133 52" style="--logo-width: 122px" role="img" aria-label="Ciena" focusable="false">
+            <title>Ciena</title>
+            <defs>
+              <clipPath id="team-logo-7">
+                <rect x="315" y="342" width="133" height="52" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-7)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="40 400 57 57" style="--logo-width: 50px" role="img" aria-label="HP" focusable="false">
+            <title>HP</title>
+            <defs>
+              <clipPath id="team-logo-8">
+                <rect x="40" y="400" width="57" height="57" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-8)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="169 476 119 40" style="--logo-width: 120px" role="img" aria-label="Juniper Networks" focusable="false">
+            <title>Juniper Networks</title>
+            <defs>
+              <clipPath id="team-logo-9">
+                <rect x="169" y="476" width="119" height="40" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-9)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="315 410 152 39" style="--logo-width: 134px" role="img" aria-label="PsiQuantum" focusable="false">
+            <title>PsiQuantum</title>
+            <defs>
+              <clipPath id="team-logo-10">
+                <rect x="315" y="410" width="152" height="39" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-10)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="593 352 131 34" style="--logo-width: 126px" role="img" aria-label="Finisar" focusable="false">
+            <title>Finisar</title>
+            <defs>
+              <clipPath id="team-logo-11">
+                <rect x="593" y="352" width="131" height="34" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-11)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/team-experience/opentable.svg" alt="OpenTable" style="--logo-width: 134px" width="134" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="314 477 134 44" style="--logo-width: 122px" role="img" aria-label="Rockley Photonics" focusable="false">
+            <title>Rockley Photonics</title>
+            <defs>
+              <clipPath id="team-logo-13">
+                <rect x="314" y="477" width="134" height="44" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-13)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="488 338 91 59" style="--logo-width: 88px" role="img" aria-label="Nubis Communications" focusable="false">
+            <title>Nubis Communications</title>
+            <defs>
+              <clipPath id="team-logo-14">
+                <rect x="488" y="338" width="91" height="59" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-14)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="488 411 117 40" style="--logo-width: 112px" role="img" aria-label="Q.ANT" focusable="false">
+            <title>Q.ANT</title>
+            <defs>
+              <clipPath id="team-logo-15">
+                <rect x="488" y="411" width="117" height="40" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-15)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="463 486 190 28" style="--logo-width: 138px" role="img" aria-label="LIGENTEC" focusable="false">
+            <title>LIGENTEC</title>
+            <defs>
+              <clipPath id="team-logo-16">
+                <rect x="463" y="486" width="190" height="28" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-16)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="22 470 124 43" style="--logo-width: 124px" role="img" aria-label="Axiomatic AI" focusable="false">
+            <title>Axiomatic AI</title>
+            <defs>
+              <clipPath id="team-logo-17">
+                <rect x="22" y="470" width="124" height="43" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-17)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="856 474 75 41" style="--logo-width: 84px" role="img" aria-label="VLC Photonics" focusable="false">
+            <title>VLC Photonics</title>
+            <defs>
+              <clipPath id="team-logo-18">
+                <rect x="856" y="474" width="75" height="41" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-18)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/foundries/imec.png" alt="IMEC" style="--logo-width: 110px" width="110" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="774 475 68 40" style="--logo-width: 68px" role="img" aria-label="MIT" focusable="false">
+            <title>MIT</title>
+            <defs>
+              <clipPath id="team-logo-20">
+                <rect x="774" y="475" width="68" height="40" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-20)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="662 480 95 60" style="--logo-width: 104px" role="img" aria-label="Stanford University" focusable="false">
+            <title>Stanford University</title>
+            <defs>
+              <clipPath id="team-logo-21">
+                <rect x="662" y="480" width="95" height="60" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-21)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          <img class="team-experience-logo team-experience-logo-standalone" src="/static/images/team-experience/mit-lincoln-laboratory.svg" alt="MIT Lincoln Laboratory" style="--logo-width: 148px" width="148" height="52" loading="lazy" decoding="async" />
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="870 404 54 54" style="--logo-width: 48px" role="img" aria-label="ETH Zürich" focusable="false">
+            <title>ETH Zürich</title>
+            <defs>
+              <clipPath id="team-logo-23">
+                <rect x="870" y="404" width="54" height="54" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-23)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="737 348 133 44" style="--logo-width: 130px" role="img" aria-label="Fraunhofer HHI" focusable="false">
+            <title>Fraunhofer HHI</title>
+            <defs>
+              <clipPath id="team-logo-24">
+                <rect x="737" y="348" width="133" height="44" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-24)" />
+          </svg>
+          
+        </li>
+        
+        <li>
+          
+          
+          
+          <svg class="team-experience-logo" viewBox="632 396 209 53" style="--logo-width: 148px" role="img" aria-label="Max Planck Institute of Microstructure Physics" focusable="false">
+            <title>Max Planck Institute of Microstructure Physics</title>
+            <defs>
+              <clipPath id="team-logo-25">
+                <rect x="632" y="396" width="209" height="53" />
+              </clipPath>
+            </defs>
+            <image href="/static/images/team-experience/logos.png" width="960" height="540" clip-path="url(#team-logo-25)" />
+          </svg>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Comparison Table Section -->
+  <section class="comparison py-5">
+    <div class="container">
+      <div class="row justify-content-center py-5">
+        <div class="col-lg-12">
+          <div class="text-center mb-5">
+            <h2 class="display-5 mb-4">EDA Tool Benchmark Comparison</h2>
+            <p class="lead">See how GDSFactory+ compares to other industry solutions</p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-dark table-bordered text-center comparison-table">
+              <thead>
+                <tr>
+                  <th>Benchmark</th>
+                  <th colspan="3">Legacy EDA Tools</th>
+                  <th>GDSFactory</th>
+                  <th class="highlight-column">GDSFactory+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Foundry PDK access and updates</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Schematic editor</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Layout</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Simulation (Device)</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Simulation (Circuit)</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Verification (DRC, LVS)</td>
+                  <td colspan="3"><i class="bi bi-check-circle-fill text-success"></i></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Data analytics</td>
+                  <td colspan="3"></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Collaboration in shared workspaces</td>
+                  <td colspan="3"></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>AI assisted design</td>
+                  <td colspan="3"></td>
+                  <td></td>
+                  <td class="highlight-column"><i class="bi bi-check-circle-fill text-success"></i></td>
+                </tr>
+                <tr>
+                  <td>Price</td>
+                  <td colspan="3" class="text-warning">$$$$</td>
+                  <td class="text-success">Open source</td>
+                  <td class="highlight-column text-info">$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing py-5" id="pricing">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 mb-4">Pricing</h2>
+        <p class="lead">Yearly plans for industry and academia. <a href="/pricing/">See full pricing</a>.</p>
+      </div>
+      
+<div class="pricing-plans" data-pricing>
+  <div class="pricing-switch" role="tablist" aria-label="Pricing for">
+    
+    <button type="button" class="pricing-switch-option" role="tab" id="pricing-tab-industry"
+      aria-controls="pricing-industry" aria-selected="true"
+      data-audience="industry">Industry</button>
+    
+    <button type="button" class="pricing-switch-option" role="tab" id="pricing-tab-academic"
+      aria-controls="pricing-academic" aria-selected="false"
+      data-audience="academic">Academic</button>
+    
+  </div>
+
+  
+  <div class="row g-4 justify-content-center pricing-audience" role="tabpanel" id="pricing-industry"
+    aria-labelledby="pricing-tab-industry" data-audience="industry">
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Local</h3>
+          
+        </div>
+        <p class="pricing-card-summary">GDSFactory+ on your own machine.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$9,751</span>
+          <span class="pricing-card-term">per year</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GDSFactory+ for local use</li>
+          
+        </ul>
+        <a class="btn btn-outline-light w-100" href="https://checkout.stripe.com/c/pay/prctbl_1RiK5dKKJC2HLX1U2EjQ1PWI/prctblitm_UFfXKCd14VlWmJ#fidkdWxOYHwnPyd1blppbHNgWjA0Sn9qMmNOTk9GN01JXTRQNkFjYWFPaGJ0TnJkXWNTbzR0d2BTNFJhX09wajcyTHJzVkh8TV9IVlBWNjZzSnVxTUxnPElQZzEwdXFOYV1TREtBcFxIMz1xNTV1XFVUamt0RycpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YHgl">Subscribe</a>
+      </article>
+    </div>
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card pricing-card_featured">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Team</h3>
+          <span class="pricing-card-badge">Includes Cloud</span>
+        </div>
+        <p class="pricing-card-summary">Local use plus GDSFactory+ Cloud.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$14,951</span>
+          <span class="pricing-card-term">per year</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GDSFactory+ for local use</li>
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GDSFactory+ Cloud</li>
+          
+        </ul>
+        <a class="btn btn-primary w-100" href="https://checkout.stripe.com/c/pay/prctbl_1RiK5dKKJC2HLX1U2EjQ1PWI/prctblitm_UFfXZW8LhXwXkt#fidkdWxOYHwnPyd1blppbHNgWjA0Sn9qMmNOTk9GN01JXTRQNkFjYWFPaGJ0TnJkXWNTbzR0d2BTNFJhX09wajcyTHJzVkh8TV9IVlBWNjZzSnVxTUxnPElQZzEwdXFOYV1TREtBcFxIMz1xNTV1XFVUamt0RycpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YHgl">Subscribe</a>
+      </article>
+    </div>
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Enterprise</h3>
+          
+        </div>
+        <p class="pricing-card-summary">GDSFactory+ Enterprise for your organisation.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$29,995</span>
+          <span class="pricing-card-term">per year</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GDSFactory+ Enterprise</li>
+          
+        </ul>
+        <a class="btn btn-outline-light w-100" href="https://checkout.stripe.com/c/pay/prctbl_1RiK5dKKJC2HLX1U2EjQ1PWI/prctblitm_UFfXZ8HPvkRged#fidkdWxOYHwnPyd1blppbHNgWjA0Sn9qMmNOTk9GN01JXTRQNkFjYWFPaGJ0TnJkXWNTbzR0d2BTNFJhX09wajcyTHJzVkh8TV9IVlBWNjZzSnVxTUxnPElQZzEwdXFOYV1TREtBcFxIMz1xNTV1XFVUamt0RycpJ3ZwZ3Zmd2x1cWxqa1BrbHRwYGtgdnZAa2RnaWBhJz9jZGl2YHgl">Subscribe</a>
+      </article>
+    </div>
+    
+  </div>
+  
+  <div class="row g-4 justify-content-center pricing-audience" role="tabpanel" id="pricing-academic"
+    aria-labelledby="pricing-tab-academic" data-audience="academic">
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Individual</h3>
+          
+        </div>
+        <p class="pricing-card-summary">For a single researcher.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$975</span>
+          <span class="pricing-card-term">per person per year</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> One named user</li>
+          
+        </ul>
+        <a class="btn btn-outline-light w-100" href="#contact">Contact us</a>
+      </article>
+    </div>
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card pricing-card_featured">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Research group</h3>
+          <span class="pricing-card-badge">Unlimited users</span>
+        </div>
+        <p class="pricing-card-summary">For a whole research group.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$9,751</span>
+          <span class="pricing-card-term">per group per year</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Unlimited users in one research group</li>
+          
+        </ul>
+        <a class="btn btn-primary w-100" href="#contact">Contact us</a>
+      </article>
+    </div>
+    
+    <div class="col-md-6 col-lg-4">
+      <article class="pricing-card pricing-card_featured">
+        <div class="pricing-card-head">
+          <h3 class="pricing-card-name">Research group, 5 years</h3>
+          <span class="pricing-card-badge">Save 20%</span>
+        </div>
+        <p class="pricing-card-summary">Lock in five years of access for your group.</p>
+        <p class="pricing-card-price">
+          <span class="pricing-card-amount">$38,751</span>
+          <span class="pricing-card-term">for 5 years</span>
+        </p>
+        <ul class="pricing-card-features">
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Unlimited users in one research group</li>
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Five-year term</li>
+          
+          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> $10,004 less than five annual group licences</li>
+          
+        </ul>
+        <a class="btn btn-primary w-100" href="#contact">Contact us</a>
+      </article>
+    </div>
+    
+  </div>
+  
+
+  <p class="pricing-footnote">
+    Billed yearly in USD. Not ready to buy? <a href="https://plus.gdsfactory.com/auth/signup" target="_blank" rel="noopener noreferrer">Start a free 30-day trial</a>.
+  </p>
+</div>
+<script src="/static/js/pricing.js" defer></script>
+
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="container">
+      <div class="row align-items-center pb-4 gx-5 gy-4 my-3">
+        <div class="col-md text-center">
+          <h2>Get started with <span class="text-gradient_green">GDSFactory+ </span> today!</h2>
+          <a class="btn btn-primary rounded-pill btn-lg" href="https://plus.gdsfactory.com/auth/signup" target="_blank" rel="noopener noreferrer">
+            <strong>Start your free 30-day trial</strong>
+          </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="feature" id="contact">
+    <div class="container">
+      <div class="row align-items-center pb-4 pt-2 gx-5 gy-4 my-3">
+        <div class="col-md text-center">
+          <h3 class="mb-3">Curious to learn more?</h3>
+          <p class="lead mb-3">Contact us at</p>
+          <img src="/static/images/contact_email.webp" alt="Contact email address" width="280" height="24" loading="lazy" decoding="async" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer text-secondary">
+    <div class="container">
+      <hr class="section-divider">
+      <div class="row align-items-center gy-4 pb-4 pt-4 my-3">
+        <div class="col-md-4 text-center">
+          <span>&copy; 2026 GDSFactory. All rights reserved.</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="/careers/">Careers</a></li>
+            <li class="list-inline-item"><a href="/privacy/">Privacy</a></li>
+            <li class="list-inline-item"><a href="/terms/">Terms</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <div class="iso-certifications" role="group" aria-label="ISO certification">
+            <img
+              class="iso-certification-image"
+              src="/static/certifications/iso-27001-badge.png"
+              alt="ISO/IEC 27001:2022 certified"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Autoplaying demo loops stay still for reduced-motion users, who can start them via controls.
+    if (reduceMotion) {
+      document.querySelectorAll('video[autoplay]').forEach(video => {
+        video.removeAttribute('autoplay');
+        video.pause();
+        video.controls = true;
+      });
+    }
+  </script>
+</body>
+</html>
